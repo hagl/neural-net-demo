@@ -10,32 +10,6 @@ function Cell(props) {
   );
 }
 
-/*
-class Grid extends React.Component {
-
-  constructor(props) {
-    super();
-    console.log("***" + props);
-    this.state = {data: props.data};
-  }
-
-
-  render() {
-
-    let grid = this.state.data.map( (value, i) => Cell({value,i}));
-
-    return (
-      <div>
-        <div className='grid' >
-          {grid}
-        </div>
-        <button onClick={() => this.clearData()}>Clear</button>
-      </div>
-    )
-  }
-
-}
-*/
 function Grid(props) {
 
     let grid = props.data.map( (value, i) => Cell({value,i}));

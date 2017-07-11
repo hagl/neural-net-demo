@@ -1,6 +1,7 @@
 {
   "name": "numbers",
   "version": "0.1.0",
+  "homepage" : "http://hagl.github.io/myapp"
   "private": true,
   "dependencies": {
     "react": "^15.6.1",

@@ -14,7 +14,7 @@ function Result(props) {
       <div className="result-row">
         <div className="result-label">{i}</div>
         <div><div className="result-percentage" style={style}>&nbsp;</div>
-        <span className="result-value">{v}</span></div>
+        <span className="result-value">{v.toFixed(3)}</span></div>
       </div>)});
     return (
       <div className='result'>

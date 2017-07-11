@@ -61,6 +61,11 @@ class Canvas extends React.Component {
     this.ctx.fillRect(0, 0, 256, 256);
   }
 
+  clearCanvas() {
+    this.ctx.fillStyle = '#FFFFFF';
+    this.ctx.fillRect(0, 0, 256, 256);
+  }
+
   draw(e) {
     if (!this.isDrawing) {
       return;
@@ -76,32 +81,17 @@ class Canvas extends React.Component {
     this.update();
   }
 
-
   render() {
-
     return (
-      <canvas ref="canvas" width={256} height={256}
-        onMouseDown = {() => this.isDrawing = true}
-        onMouseUp = {() => this.isDrawing = false}
-        onMouseMove = {(e) => this.draw(e)}
-      />
-    );
-    /*
-    return (
-      <div>
-        <div className='canvas'
-            onMouseDown={(e) => this.handleMouseDown(e)}
-            onMouseUp={(e) => this.handleMouseUp(e)}
-            onMouseEnter ={(e) => this.handleMouseUp(e)}
-            >
-          {grid}
-        </div>
-        <button onClick={() => this.clearData()}>Clear</button>
+      <div className="canvas">
+        <canvas ref="canvas" width={256} height={256}
+          onMouseDown = {() => this.isDrawing = true}
+          onMouseUp = {() => this.isDrawing = false}
+          onMouseMove = {(e) => this.draw(e)}
+        />
       </div>
-    )
-    */
+    );
   }
-
 }
 
 export default Canvas;

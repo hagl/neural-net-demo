@@ -1,36 +1,18 @@
-.App {
-  /*
-  text-align: center;
-  */
-  background-color: #DDD;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .content {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
+  padding: 10px;
+}
+
+.buttons{
+  margin: 25px;
+}
+.canvas {
+  width: 276px;
+  height: 276px;
+  margin: 10px;
 }
 
 .grid {
@@ -38,12 +20,11 @@
   display: flex;
  -webkit-flex-flow: row wrap;
  flex-flow: row wrap;
- /* tweak the where items line up on the row */
- /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
  -webkit-align-content: flex-end;
  align-content: flex-end;
  width: 256px;
  height: 256px;
+ margin: 10px;
 }
 
 .cell {
@@ -54,8 +35,10 @@
 }
 
 .result {
-  width: 256 px;
+  width: 256px;
   height: 256px;
+  margin: 10px;
+
 }
 .result-row {
   display: -webkit-flex;
