@@ -9,7 +9,7 @@ class App extends Component {
 
   constructor() {
     super();
-    this.state = {data: []};
+    this.state = {data: this.emptyData()};
     this.clear();
   }
 
@@ -22,10 +22,14 @@ class App extends Component {
     return true;
   }
 
+  emptyData() {
+    let data = [];
+    for (let i=0; i<256; i++) data.push(0);
+    return data;
+  }
+
   clear() {
-    let newData = [];
-    for (let i=0; i<256; i++) newData.push(0);
-    this.setState({data: newData})
+    this.setState({data: this.emptyData()})
     if (this.refs.canvas) {
       this.refs.canvas.clearCanvas();
     }
@@ -39,10 +43,6 @@ class App extends Component {
 
     return (
       <div className="App">
-        <p>
-        <h3>A neural net for recognizing hand-written numbers</h3>
-        I have recently taken the excellent Coursera course <a href="https://www.coursera.org/learn/neural-networks">Neural Networks for Machine Learning</a> by Geoffrey Hinton. In one of the assignmens various aspects of a neural network for number recognition were studied. To get a feel for the abilities of the neural network, I created this small webapp to experiment with the classifier.
-        </p>
         <p>
         Press the buttons to load some of the training data or draw your own number with the mouse in the white rectangle on the left.
         </p>
@@ -60,8 +60,6 @@ class App extends Component {
             <Result key="result" data={this.state.data}/>
           </div>
         </div>
-        <p>Source code for this app is available on <a href="https://github.com/hagl">Github</a></p>
-        <div className='footer'>&copy; 2017 Harald Gliebe</div>
       </div>
     );
   }

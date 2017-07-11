@@ -87,6 +87,7 @@ class Canvas extends React.Component {
         <canvas ref="canvas" width={256} height={256}
           onMouseDown = {() => this.isDrawing = true}
           onMouseUp = {() => this.isDrawing = false}
+          onMouseLeave ={() => this.isDrawing = false}
           onMouseMove = {(e) => this.draw(e)}
         />
       </div>
