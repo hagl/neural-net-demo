@@ -66,14 +66,29 @@ class Canvas extends React.Component {
     this.ctx.fillRect(0, 0, 256, 256);
   }
 
-  draw(e) {
+  mousemove(e) {
     if (!this.isDrawing) {
       return;
     }
-    this.ctx.fillStyle = '#000000';
-    this.ctx.beginPath();
     var x = e.pageX - this.refs.canvas.offsetLeft;
     var y = e.pageY - this.refs.canvas.offsetTop;
+    this.draw(x,y);
+  }
+
+  touchmove(e) {
+    if (!this.isDrawing) {
+      return;
+    }
+    for (let i = 0; i < e.touches.length; i++) {
+      var x = e.touches[i].pageX - this.refs.canvas.offsetLeft;
+      var y =e.touches[i].pageY - this.refs.canvas.offsetTop ;
+      this.draw(x,y);
+    }
+  }
+
+  draw(x,y) {
+    this.ctx.fillStyle = '#000000';
+    this.ctx.beginPath();
     this.ctx.moveTo(x, y);
     this.ctx.imageSmoothingEnabled = true;
     this.ctx.arc(x, y, 18, 0, Math.PI * 2, false);
@@ -81,14 +96,18 @@ class Canvas extends React.Component {
     this.update();
   }
 
+
   render() {
     return (
       <div className="canvas">
         <canvas ref="canvas" width={256} height={256}
           onMouseDown = {() => this.isDrawing = true}
+          onTouchStart  = {() => this.isDrawing = true}
           onMouseUp = {() => this.isDrawing = false}
+          onTouchEnd  = {() => this.isDrawing = false}
           onMouseLeave ={() => this.isDrawing = false}
-          onMouseMove = {(e) => this.draw(e)}
+          onMouseMove = {(e) => this.mousemove(e)}
+          onTouchMove = {(e) => this.touchmove(e)}
         />
       </div>
     );
