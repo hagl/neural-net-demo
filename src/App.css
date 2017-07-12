@@ -4,12 +4,14 @@
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
   padding: 10px;
+  justify-content: center;
+
 }
 
-.buttons{
+.buttons, .centered-label {
   display: flex;
   align-items: center;
-   justify-content: center;
+  justify-content: center;
  }
 
 .canvas {
@@ -31,6 +33,10 @@
  margin: 10px;
 }
 
+.box {
+  width: 276px;
+}
+
 .cell {
   width: 14px;
   height: 14px;
@@ -38,12 +44,29 @@
   cursor: crosshair;
 }
 
+.hiddenUnit {
+  width: 128px;
+  height: 6px;
+  border: 1px solid grey;
+}
+
+.hidden {
+  width: 128px;
+  height: 256px;
+  margin: 10px 74px;
+  justify-content: center;
+  display: -webkit-flex;
+  display: flex;
+ -webkit-flex-flow: row wrap;
+ flex-flow: row wrap;
+}
+
 .result {
   width: 256px;
   height: 256px;
   margin: 10px;
-
 }
+
 .result-row {
   display: -webkit-flex;
   display: flex;

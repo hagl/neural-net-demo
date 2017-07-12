@@ -10,9 +10,9 @@ class NeuralNet {
     return 1 / (1 + Math.exp(-z));
   }
 
-  predict(pixels) {
-    let hidden = [];
+  hidden(pixels) {
     let hid = this.model.input_to_hid.length;
+    let hidden = [];
     for (let i = 0; i<hid; i++) {
       let sum = 0.0;
 
@@ -25,7 +25,12 @@ class NeuralNet {
       }
       hidden.push(this.sigmoid(sum));
     }
+    return hidden;
+  }
 
+  predict(pixels) {
+    let hid = this.model.input_to_hid.length;
+    let hidden = this.hidden(pixels);
     let d = 0.0;
     let p = 0.0;
     let classes = [];

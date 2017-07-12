@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Canvas from './components/Canvas';
 import Grid from './components/Grid';
+import Hidden from './components/Hidden';
 import Result from './components/Result';
 import data from './data';
 
@@ -54,8 +55,12 @@ class App extends Component {
             <span key="buttons" className='buttons'>{buttons}</span>
             <Grid key="grid" data={this.state.data}/>
           </div>
+          <div key="hidden" className='box'>
+            <span key="label" className='centered-label'>Hidden logistic units</span>
+            <Hidden key="hidden" data={this.state.data}/>
+          </div>
           <div key="results" className='box'>
-            <span key="label">Estimated probability for each digit:</span>
+            <span key="label" className='centered-label'>Estimated probability per digit</span>
             <Result key="result" data={this.state.data}/>
           </div>
         </div>
