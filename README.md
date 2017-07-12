@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+## A neural net for recognizing hand-written digits
 
 You can play with this demo  [here](https://hagl.github.io/neural-net-demo/).
 
