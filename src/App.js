@@ -44,7 +44,7 @@ class App extends Component {
     return (
       <div className="App">
         <p>
-        Press the buttons to load some of the training data or draw your own number with the mouse in the white rectangle on the left.
+        Press the buttons to load some of the training data or draw your own digit with the mouse in the white rectangle on the left.
         </p>
         <div className='content'>
           <div className='box'>
@@ -56,7 +56,7 @@ class App extends Component {
             <Grid key="grid" data={this.state.data}/>
           </div>
           <div className='box'>
-            <span>Estimated probability for each number:</span>
+            <span>Estimated probability for each digit:</span>
             <Result key="result" data={this.state.data}/>
           </div>
         </div>
