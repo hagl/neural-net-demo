@@ -11,9 +11,9 @@ function Result(props) {
     let list = result.map((v,i) => {
       let style = {width: 200*v};
       return (
-      <div className="result-row">
-        <div className="result-label">{i}</div>
-        <div><div className="result-percentage" style={style}>&nbsp;</div>
+      <div key={"row" + i} className="result-row">
+        <div key="label" className="result-label">{i}</div>
+        <div key="percentage"><div className="result-percentage" style={style}>&nbsp;</div>
         <span className="result-value">{v.toFixed(3)}</span></div>
       </div>)});
     return (

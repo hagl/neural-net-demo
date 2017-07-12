@@ -10,7 +10,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {data: this.emptyData()};
-    this.clear();
   }
 
   updateData(newData) {
@@ -38,25 +37,25 @@ class App extends Component {
   render() {
 
     let buttons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => {
-      return (<button onClick={()=>{this.clear(); this.setState({data: data[i]});}}>{i}</button>);
+      return (<button key={"button" + i} onClick={()=>{this.clear(); this.setState({data: data[i]});}}>{i}</button>);
     });
 
     return (
       <div className="App">
-        <p>
+        <p key="intro">
         Press the buttons to load some of the training data or draw your own digit with the mouse in the white rectangle on the left.
         </p>
-        <div className='content'>
+        <div key="content" className='content'>
           <div className='box'>
-            <button onClick={()=>this.clear()}>Clear</button>
+            <button key="clear" onClick={()=>this.clear()}>Clear</button>
             <Canvas key="canvas" ref="canvas" updateData={(d) => this.updateData(d)} />
           </div>
-          <div className='box'>
-            <span className='buttons'>{buttons}</span>
+          <div key="buttons" className='box'>
+            <span key="buttons" className='buttons'>{buttons}</span>
             <Grid key="grid" data={this.state.data}/>
           </div>
-          <div className='box'>
-            <span>Estimated probability for each digit:</span>
+          <div key="results" className='box'>
+            <span key="label">Estimated probability for each digit:</span>
             <Result key="result" data={this.state.data}/>
           </div>
         </div>

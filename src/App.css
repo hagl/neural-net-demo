@@ -16,6 +16,7 @@
   width: 276px;
   height: 276px;
   margin: 10px;
+  touch-action: none;
 }
 
 .grid {
